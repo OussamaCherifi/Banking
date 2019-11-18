@@ -9,11 +9,6 @@ package banking;
  *
  * @author cstuser
  */
-public class Transaction implements ITransaction{
+public class SavingsAccount extends Account {
     
-
-@Override
-public String toString(){
-    return null;
-    }
 }

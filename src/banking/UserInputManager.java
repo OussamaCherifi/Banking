@@ -5,50 +5,69 @@
  */
 package banking;
 
-import javafx.scene.control.ButtonType;
+import java.util.Scanner;
+
 
 /**
  *
  * @author cstuser
  */
-public class UserInputManager extends Client implements IUserInputManager  {
+public class UserInputManager implements IUserInputManager  {
 
-
+    private static final Scanner scan = new Scanner(System.in);
     public UserInputManager() {
     }
     
 //Oussama 
+    @Override
     public int retrieveAccountNumber() {
-        int accountNb = scan.nextInt();
-        accountList.get(accountNb);
-        return accountNb;
+        System.out.println("Enter the account number :");
+        int accountNumber = scan.nextInt();
+        return accountNumber;
     }
 
   
+    @Override
     public Account retrieveAccountType() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Select the desired account:\n• Type 1 for Checking account;\n•Type 2 for Savings account;");
+        int type = scan.nextInt();
+        if(type == 1){
+            return new CheckingAccount();
+        }
+        else if(type == 2){
+            return new SavingsAccount();
+        }
+        else{
+            System.err.println("Please, make sure to enter 1 or 2.");
+        }
+        //@RR
+        return null;
     }
 
 //all
+    @Override
     public int retrieveClientId() {
-        id++;
+        System.out.println("Enter the Client's id :");
+        int id = scan.nextInt();
         return id;
-    
     }
 
 //all the team
+    @Override
     public Client retrieveClientInfo() {
         System.out.println("Enter your first name: ");
-        firstName = scan.nextLine();
+        String firstName = scan.nextLine();
         System.out.println("Enter your last name: ");
-        lastName= scan.nextLine();
+        String lastName= scan.nextLine();
 
         Client newClient = new Client(firstName, lastName);
         return newClient;
     }
 
 
+    @Override
     public double retrieveTransactionAmount() {
+        System.out.println("Enter the transaction amount :");
         double transaction = scan.nextDouble();
         return transaction;
     }
@@ -63,9 +82,7 @@ public class UserInputManager extends Client implements IUserInputManager  {
 "	[6] List Clients\n" +
 "	[7] List Client Accounts \n *******************************************");
         int input = scan.nextInt();
-        
-       
-        
+
         return input;
     }
     

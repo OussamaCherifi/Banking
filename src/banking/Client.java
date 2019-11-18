@@ -5,6 +5,7 @@
  */
 package banking;
 
+import com.sun.jmx.snmp.UserAcl;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,14 +15,15 @@ import java.util.Scanner;
  */
 
 
-public class Client implements IClient{
-    protected int id;
-    protected String firstName;
-    protected String lastName;
-    static ArrayList<Account>accountList;
-    private static int counter = 42;
-    
+public class Client implements IClient {
+    private int id;
+    private String firstName;
+    private String lastName;
+    private ArrayList<Account>accountList;
+    private static int counter = 1;
+    Bank bank = new Bank();
     static Scanner scan = new Scanner(System.in);
+    UserInputManager userInput = new UserInputManager();
 
     public Client() {
         this.id = Client.counter;
@@ -34,21 +36,23 @@ public class Client implements IClient{
         this.firstName = firstName;
         this.lastName = lastName;
         Client.counter++;
+        accountList = new ArrayList<Account>();
     }
     
     @Override
     public void addAccount(Account newAccount) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  
+        bank.clientList.get(userInput.retrieveClientId()).accountList.add(userInput.retrieveAccountType());
     }
 
     @Override
     public void displayAccounts() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public Account getAccount(int accountNumber) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
     
 }
