@@ -6,7 +6,7 @@
 package banking;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 /**
  *
@@ -15,37 +15,38 @@ import java.util.Scanner;
 public class Bank implements IBank{
     private String bankNumber;
     private String address;
-    private ArrayList<Client>clientList;
+    protected static ArrayList<Client>clientList;
     protected int counter;
     private UserInputManager userInput = new UserInputManager();
     
     
     @Override
-    public void addClient(Client newClient) {    
+    public void addClient(Client newClient){    
     userInput.retrieveClientInfo();
-    
-    clientList.add(userInput);
-        
-        
+    clientList.add(newClient);
 
     }
 
+    @Override
     public void displayClientAccounts(int clientId) {
        
     }
 //Oussama
+    @Override
     public void displayClientList() {
     System.out.println(clientList);
     }
 
 
+    @Override
     public Client getClient(int id) {
-       
+       return null;
     }
 
 
+    @Override
     public Account getClientAccount(int clientId, int accountNumber) {
-        
+        return null;
     }
     
 }
