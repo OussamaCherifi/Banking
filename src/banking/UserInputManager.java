@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @author cstuser
  */
 public class UserInputManager implements IUserInputManager  {
-
+    private static final Bank bank = new Bank();
     private static final Scanner scan = new Scanner(System.in);
     public UserInputManager() {
     }
@@ -29,13 +29,12 @@ public class UserInputManager implements IUserInputManager  {
   
     @Override
     public Account retrieveAccountType() {
-        
-        
+        int id = retrieveClientId();
         System.out.println("Select the desired account:\n• Type 1 for Checking account;\n•Type 2 for Savings account;");
         int type = scan.nextInt();
         if(type == 1){
             Account check = new CheckingAccount("checking");
-            check.owner = 
+            bank.clientList(id);
         }
         else if(type == 2){
             return new SavingsAccount("saving");

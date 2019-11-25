@@ -15,9 +15,13 @@ import java.util.ArrayList;
 public class Bank implements IBank{
     private String bankNumber;
     private String address;
-    protected static ArrayList<Client>clientList;
+    protected ArrayList<Client>clientList;
     private final UserInputManager userInput = new UserInputManager();
 
+    public Bank() {
+    }
+
+    
     public Bank(String bankNumber, String address) {
         this.bankNumber = bankNumber;
         this.address = address;
