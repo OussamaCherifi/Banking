@@ -16,8 +16,12 @@ public class Bank implements IBank{
     private String bankNumber;
     private String address;
     protected static ArrayList<Client>clientList;
-    protected int counter;
-    private UserInputManager userInput = new UserInputManager();
+    private final UserInputManager userInput = new UserInputManager();
+
+    public Bank(String bankNumber, String address) {
+        this.bankNumber = bankNumber;
+        this.address = address;
+    }
     
     
     @Override
@@ -34,7 +38,7 @@ public class Bank implements IBank{
 //Oussama
     @Override
     public void displayClientList() {
-    System.out.println(clientList);
+    
     }
 
 
@@ -48,5 +52,36 @@ public class Bank implements IBank{
     public Account getClientAccount(int clientId, int accountNumber) {
         return null;
     }
+
+    
+    
+    
+    
+    
+    
+    public String getBankNumber() {
+        return bankNumber;
+    }
+
+    public void setBankNumber(String bankNumber) {
+        this.bankNumber = bankNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public static ArrayList<Client> getClientList() {
+        return clientList;
+    }
+
+    public static void setClientList(ArrayList<Client> clientList) {
+        Bank.clientList = clientList;
+    }
+    
     
 }

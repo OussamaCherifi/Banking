@@ -21,9 +21,6 @@ public class Client implements IClient {
     private String lastName;
     private ArrayList<Account>accountList;
     private static int counter = 1;
-    Bank bank = new Bank();
-    static Scanner scan = new Scanner(System.in);
-    UserInputManager userInput = new UserInputManager();
 
     public Client() {
         this.id = Client.counter;
@@ -53,5 +50,51 @@ public class Client implements IClient {
     public Account getAccount(int accountNumber) {
         return null;
     }
+
+    
+    
+    
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public ArrayList<Account> getAccountList() {
+        return accountList;
+    }
+
+    public void setAccountList(ArrayList<Account> accountList) {
+        this.accountList = accountList;
+    }
+
+    public static int getCounter() {
+        return counter;
+    }
+
+    public static void setCounter(int counter) {
+        Client.counter = counter;
+    }
+    
+    
     
 }

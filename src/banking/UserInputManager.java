@@ -29,13 +29,16 @@ public class UserInputManager implements IUserInputManager  {
   
     @Override
     public Account retrieveAccountType() {
+        
+        
         System.out.println("Select the desired account:\n• Type 1 for Checking account;\n•Type 2 for Savings account;");
         int type = scan.nextInt();
         if(type == 1){
-            return new CheckingAccount(true, String firstName + String lastName);
+            Account check = new CheckingAccount("checking");
+            check.owner = 
         }
         else if(type == 2){
-            return new SavingsAccount(false, );
+            return new SavingsAccount("saving");
         }
         else{
             System.err.println("Please, make sure to enter 1 or 2.");

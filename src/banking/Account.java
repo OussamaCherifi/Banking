@@ -16,16 +16,14 @@ public class Account implements IAccount{
     	protected int accountNumber;
 	protected double balance = 0;
 	protected ArrayList<Transaction>transactions;
-        protected boolean ifChecking;
+        protected String type;
         protected String owner;
         protected static int counter = 1;
 
-    public Account(boolean ifChecking, String owner) {
-        this.accountNumber = counter;
-        this.ifChecking = ifChecking;
-        this.owner = owner;
+    public Account(String owner) {
+        this.type = type;
         counter++;
-        
+        transactions = new ArrayList<Transaction>();
     }
         
         
@@ -35,7 +33,7 @@ public class Account implements IAccount{
     d = sc.nextDouble();
     return d;
 }
-
+    
     @Override
     public void displayAllTransactions() {
        
