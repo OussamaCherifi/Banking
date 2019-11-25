@@ -41,8 +41,7 @@ public class Client implements IClient {
     
     @Override
     public void addAccount(Account newAccount) {
-  
-        bank.clientList.get(userInput.retrieveClientId()).accountList.add(userInput.retrieveAccountType());
+        accountList.add(newAccount);
     }
 
     @Override

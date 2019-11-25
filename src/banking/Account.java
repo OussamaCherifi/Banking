@@ -14,15 +14,21 @@ import java.util.Scanner;
  */
 public class Account implements IAccount{
     	protected int accountNumber;
-	protected double balance;
-	protected ArrayList<Double> transactions;
-        protected String checking; 
-        protected String savings;
+	protected double balance = 0;
+	protected ArrayList<Transaction>transactions;
+        protected boolean ifChecking;
         protected String owner;
-        private int counter;
+        protected static int counter = 1;
 
-   
-    
+    public Account(boolean ifChecking, String owner) {
+        this.accountNumber = counter;
+        this.ifChecking = ifChecking;
+        this.owner = owner;
+        counter++;
+        
+    }
+        
+        
     public double deposit(double d){
        
     Scanner sc = new Scanner(System.in);
@@ -32,16 +38,16 @@ public class Account implements IAccount{
 
     @Override
     public void displayAllTransactions() {
-       System.out.println(transactions);
+       
     }
 
     @Override
     public ArrayList<Transaction> getTransactions() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     @Override
     public double withdrawal(double w) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 0;
     }
 }

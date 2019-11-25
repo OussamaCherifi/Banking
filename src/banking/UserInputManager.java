@@ -32,10 +32,10 @@ public class UserInputManager implements IUserInputManager  {
         System.out.println("Select the desired account:\n• Type 1 for Checking account;\n•Type 2 for Savings account;");
         int type = scan.nextInt();
         if(type == 1){
-            return new CheckingAccount();
+            return new CheckingAccount(true, String firstName + String lastName);
         }
         else if(type == 2){
-            return new SavingsAccount();
+            return new SavingsAccount(false, );
         }
         else{
             System.err.println("Please, make sure to enter 1 or 2.");
@@ -74,15 +74,8 @@ public class UserInputManager implements IUserInputManager  {
 
 //Ismail
     public int retrieveUserOption() {
-         System.out.println("Welcome to the bank\n *******************************************\n •	[1] Add a new Client  \n" +
-"	[2] Create a new Account \n" +
-"	[3] Make a Deposit             \n" +
-"	[4] Make a Withdrawal \n" +
-"	[5] List Account Transactions  \n" +
-"	[6] List Clients\n" +
-"	[7] List Client Accounts \n *******************************************");
+        System.out.println("Enter your option :");
         int input = scan.nextInt();
-
         return input;
     }
     

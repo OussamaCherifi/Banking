@@ -5,10 +5,23 @@
  */
 package banking;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author cstuser
  */
 public class SavingsAccount extends Account {
+
+    public SavingsAccount(boolean ifChecking, String owner) {
+        super(ifChecking, owner);
+        this.ifChecking = false;
+        this.owner = owner;
+        this.accountNumber = Account.counter;
+        Account.counter++;
+        transactions = new ArrayList<Transaction>();
+    }
+
+
     
 }
