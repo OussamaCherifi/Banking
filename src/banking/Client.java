@@ -14,13 +14,13 @@ import java.util.Scanner;
  * @author cstuser
  */
 
-
+//Mohamed
 public class Client implements IClient {
     private int id;
     private String firstName;
     private String lastName;
     private ArrayList<Account>accountList;
-    private static int counter = 1;
+    private static int counter = 0;
 
     public Client() {
         this.id = Client.counter;
@@ -32,7 +32,7 @@ public class Client implements IClient {
         this.id = Client.counter;
         this.firstName = firstName;
         this.lastName = lastName;
-        Client.counter++;
+        counter++;
         accountList = new ArrayList<Account>();
     }
     

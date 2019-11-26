@@ -11,6 +11,7 @@ import java.util.ArrayList;
  *
  * @author cstuser
  */
+//Ismail
 public class CheckingAccount extends Account {
 
     public CheckingAccount(String type) {

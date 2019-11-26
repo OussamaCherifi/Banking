@@ -12,15 +12,17 @@ import java.util.Scanner;
  *
  * @author cstuser
  */
+//Ismail
 public class Account implements IAccount{
     	protected int accountNumber;
 	protected double balance = 0;
 	protected ArrayList<Transaction>transactions;
         protected String type;
         protected String owner;
-        protected static int counter = 1;
+        protected static int counter = 0;
+        private static final UserInputManager userInput = new UserInputManager();
 
-    public Account(String owner) {
+    public Account(String type) {
         this.type = type;
         counter++;
         transactions = new ArrayList<Transaction>();
@@ -28,10 +30,11 @@ public class Account implements IAccount{
         
         
     public double deposit(double d){
+       userInput.retrieveTransactionAmount();
        
-    Scanner sc = new Scanner(System.in);
-    d = sc.nextDouble();
-    return d;
+       Transaction t = new Transaction();
+        
+    return balance;
 }
     
     @Override
@@ -48,4 +51,51 @@ public class Account implements IAccount{
     public double withdrawal(double w) {
         return 0;
     }
+    
+    
+    
+    
+    
+    
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public static int getCounter() {
+        return counter;
+    }
+
+    public static void setCounter(int counter) {
+        Account.counter = counter;
+    }
+    
 }

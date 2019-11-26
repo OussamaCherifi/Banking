@@ -12,8 +12,10 @@ import java.util.Scanner;
  *
  * @author cstuser
  */
+//Oussama
 public class UserInputManager implements IUserInputManager  {
     private static final Bank bank = new Bank();
+    private static final UserInputManager userInput = new UserInputManager();
     private static final Scanner scan = new Scanner(System.in);
     public UserInputManager() {
     }
@@ -29,12 +31,12 @@ public class UserInputManager implements IUserInputManager  {
   
     @Override
     public Account retrieveAccountType() {
-        int id = retrieveClientId();
+        int id = userInput.retrieveClientId();
         System.out.println("Select the desired account:\n• Type 1 for Checking account;\n•Type 2 for Savings account;");
         int type = scan.nextInt();
         if(type == 1){
             Account check = new CheckingAccount("checking");
-            bank.clientList(id);
+            
         }
         else if(type == 2){
             return new SavingsAccount("saving");
@@ -42,7 +44,7 @@ public class UserInputManager implements IUserInputManager  {
         else{
             System.err.println("Please, make sure to enter 1 or 2.");
         }
-        //@RR
+    //If statement != 1 or 2, then it returns nothing. 
         return null;
     }
 
