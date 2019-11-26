@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @author cstuser
  */
 //Sathu
-public class Bank extends Client implements IBank {
+public class Bank implements IBank {
     private String bankNumber;
     private String address;
     private ArrayList<Client>clientList;
@@ -22,33 +22,39 @@ public class Bank extends Client implements IBank {
     
     @Override
     public void addClient(Client newClient) {    
-    userInput.retrieveClientInfo();
-    clientList.add(newClient);
+        clientList.add(newClient);
     }
-
+    
+//Ismail
     public void displayClientAccounts(int clientId) {
         for(int i = 0; i < clientList.get(clientId).getAccountList().size();i++) {
             System.out.print(clientList.get(clientId).getAccountList().get(i).toString());
         }
     }
-    
+    //Sathu
     public void displayClientList() {
     for(int i = 0; i< clientList.size(); i++){
         System.out.println(clientList.get(i).toString());
         }
     }
 
-
+//Sathu
     @Override
     public Client getClient(int id) {
         return clientList.get(id);
     }
 
-
+//Ismail
     public Account getClientAccount(int clientId, int accountNumber) {
         return getClient(clientId).getAccountList().get(accountNumber);
     }
 
+    
+    
+    
+    
+    
+    
     public String getBankNumber() {
         return bankNumber;
     }
@@ -81,6 +87,8 @@ public class Bank extends Client implements IBank {
         this.userInput = userInput;
     }
     
-    
+    public String toString(){
+        return "";
+    }    
     
 }

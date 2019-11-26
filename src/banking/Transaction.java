@@ -9,7 +9,7 @@ package banking;
  *
  * @author cstuser
  */
-//Ismail
+//Sathu
 public class Transaction implements ITransaction{
     private String type;
     private double amount;

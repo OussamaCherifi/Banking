@@ -5,9 +5,8 @@
  */
 package banking;
 
-import com.sun.jmx.snmp.UserAcl;
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 /**
  *
@@ -21,12 +20,6 @@ public class Client implements IClient {
     private String lastName;
     private ArrayList<Account>accountList;
     private static int counter = 0;
-
-    public Client() {
-        this.id = Client.counter;
-        Client.counter++;
-    }
-
 
     public Client(String firstName, String lastName) {
         this.id = Client.counter;
@@ -95,6 +88,9 @@ public class Client implements IClient {
         Client.counter = counter;
     }
     
-    
+    //@RR
+    public String toString(){
+        return "";
+    }
     
 }

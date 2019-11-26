@@ -5,7 +5,6 @@
  */
 package banking;
 
-import java.util.Scanner;
 
 /**
  *
@@ -28,6 +27,13 @@ public class Banking {
 "	[5] List Account Transactions  \n" +
 "	[6] List Clients\n" +
 "	[7] List Client Accounts \n *******************************************");
-        
+       // if(1){
+       //     Client c = myBank.getClientInfo();
+       //     myBank.addClient(c);
+    }
+    
+    public static void test(Bank myBank) {
+        Client newClient = new Client("Ronald", "Raphael");
+        myBank.addClient(newClient);
     }
 }

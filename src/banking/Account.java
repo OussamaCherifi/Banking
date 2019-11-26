@@ -6,7 +6,7 @@
 package banking;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 /**
  *
@@ -18,7 +18,7 @@ public class Account implements IAccount{
 	protected double balance = 0;
 	protected ArrayList<Transaction>transactions;
         protected String type;
-        protected String owner;
+        protected Client owner;
         protected static int counter = 0;
         private static final UserInputManager userInput = new UserInputManager();
 
@@ -29,13 +29,13 @@ public class Account implements IAccount{
     }
         
         
+    @Override
     public double deposit(double d){
-       userInput.retrieveTransactionAmount();
-       
-       Transaction t = new Transaction();
-        
-    return balance;
-}
+       //@RR
+       transactions.add(new Transaction("Deposit", d));
+       balance += d;
+       return balance;
+    }
     
     @Override
     public void displayAllTransactions() {
@@ -49,7 +49,10 @@ public class Account implements IAccount{
 
     @Override
     public double withdrawal(double w) {
-        return 0;
+        transactions.add(new Transaction("Deposit", w));
+        balance -= w;
+        return balance;
+
     }
     
     
@@ -82,11 +85,11 @@ public class Account implements IAccount{
         this.type = type;
     }
 
-    public String getOwner() {
+    public Client getOwner() {
         return owner;
     }
 
-    public void setOwner(String owner) {
+    public void setOwner(Client owner) {
         this.owner = owner;
     }
 

@@ -5,7 +5,6 @@
  */
 package banking;
 
-import java.util.ArrayList;
 
 /**
  *
@@ -14,8 +13,8 @@ import java.util.ArrayList;
 //Ismail
 public class CheckingAccount extends Account {
 
-    public CheckingAccount(String type) {
-        super(type);
+    public CheckingAccount() {
+        super("Chcking");
     }
 
 

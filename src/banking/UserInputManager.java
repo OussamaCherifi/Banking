@@ -28,27 +28,25 @@ public class UserInputManager implements IUserInputManager  {
         return accountNumber;
     }
 
-  
+  //Oussama
     @Override
     public Account retrieveAccountType() {
-        int id = userInput.retrieveClientId();
         System.out.println("Select the desired account:\n• Type 1 for Checking account;\n•Type 2 for Savings account;");
         int type = scan.nextInt();
         if(type == 1){
-            Account check = new CheckingAccount("checking");
-            
+            return new CheckingAccount();
         }
         else if(type == 2){
-            return new SavingsAccount("saving");
+            return new SavingsAccount();
         }
         else{
             System.err.println("Please, make sure to enter 1 or 2.");
         }
-    //If statement != 1 or 2, then it returns nothing. 
+        //If statement != 1 or 2, then it returns nothing. 
         return null;
     }
 
-//all
+//Oussama
     @Override
     public int retrieveClientId() {
         System.out.println("Enter the Client's id :");
@@ -56,7 +54,7 @@ public class UserInputManager implements IUserInputManager  {
         return id;
     }
 
-//all the team
+//Oussama
     @Override
     public Client retrieveClientInfo() {
         System.out.println("Enter your first name: ");
@@ -64,8 +62,7 @@ public class UserInputManager implements IUserInputManager  {
         System.out.println("Enter your last name: ");
         String lastName= scan.nextLine();
 
-        Client newClient = new Client(firstName, lastName);
-        return newClient;
+        return new Client(firstName, lastName);
     }
 
 
@@ -76,9 +73,17 @@ public class UserInputManager implements IUserInputManager  {
         return transaction;
     }
 
-//Ismail
+    
+   //Oussama
     public int retrieveUserOption() {
         System.out.println("Enter your option :");
+        System.out.println("Welcome to the bank, please select the option you wish to execute; \n *******************************************\n 	[1] Add a new Client  \n" +
+"	[2] Create a new Account \n" +
+"	[3] Make a Deposit             \n" +
+"	[4] Make a Withdrawal \n" +
+"	[5] List Account Transactions  \n" +
+"	[6] List Clients\n" +
+"	[7] List Client Accounts \n *******************************************");
         int input = scan.nextInt();
         return input;
     }
