@@ -12,80 +12,64 @@ import java.util.ArrayList;
  *
  * @author cstuser
  */
-public class Bank implements IBank{
+public class Bank extends Client implements IBank {
     private String bankNumber;
     private String address;
-    protected ArrayList<Client>clientList;
-    private final UserInputManager userInput = new UserInputManager();
-
-    public Bank() {
-    }
-
+    private ArrayList<Client>clientList;
     
-    public Bank(String bankNumber, String address) {
-        this.bankNumber = bankNumber;
-        this.address = address;
-    }
+    private UserInputManager userInput = new UserInputManager();
     
     
     @Override
-    public void addClient(Client newClient){    
+    public void addClient(Client newClient) {    
     userInput.retrieveClientInfo();
-    clientList.add(newClient);
-
-    }
-
-    @Override
-    public void displayClientAccounts(int clientId) {
-       
-    }
-//Oussama
-    @Override
-    public void displayClientList() {
     
+    clientList.add(userInput);
+        
+        
+
+    }
+
+    public void displayClientAccounts(int clientId) {
+        int userId = userInput.retrieveClientId();
+        
+      for(int i = 0; i < accountList.size(); i++) {   
+          
+    System.out.print(accountList.get(i));
+       
+        
+    }
+    }
+    public void displayClientList() {
+        for(int i = 0; i< clientList.size(); i++){
+    System.out.println(clientList.toString() );
+    
+        }
     }
 
 
     @Override
     public Client getClient(int id) {
-       return null;
-    }
-
-
-    @Override
-    public Account getClientAccount(int clientId, int accountNumber) {
+        for(int i = 0; i<=clientList.size()+1; i++){
+            if(clientList.get(i).id==this.id){
+                return clientList.get(i);
+            }
+            else if(i==clientList.size()+1){
+                System.err.println("This id does not exist in any client.");   
+            }
+        }
         return null;
     }
 
-    
-    
-    
-    
-    
-    
-    public String getBankNumber() {
-        return bankNumber;
-    }
 
-    public void setBankNumber(String bankNumber) {
-        this.bankNumber = bankNumber;
+    public Account getClientAccount(int clientId, int accountNumber) {
+        int idValid = -1;
+        if(getClient()> idValid){
+            
+            
+        }
+        
+        return null;
+        
     }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public static ArrayList<Client> getClientList() {
-        return clientList;
-    }
-
-    public static void setClientList(ArrayList<Client> clientList) {
-        Bank.clientList = clientList;
-    }
-    
-    
 }
