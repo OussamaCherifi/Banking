@@ -37,27 +37,27 @@ public class Account implements IAccount{
     public double deposit(double d){
        this.transactions.add(new Transaction("Deposit", d));
        this.balance += d;
-       System.out.println(type+"("+accountNumber+"): "+df.format(balance)+"$");
        return this.balance; 
     }
     
     @Override
     public void displayAllTransactions() {
-       
+       for(int i=0;i<this.transactions.size();i++){
+           System.out.println(transactions.get(i));
+       }
+       System.out.println(type+"("+accountNumber+"): "+df.format(balance)+"$");
     }
 
     @Override
     public ArrayList<Transaction> getTransactions() {
-        return null;
+        return this.transactions;
     }
 
     @Override
     public double withdrawal(double w) {
         this.transactions.add(new Transaction("Withdrawal", w));
         this.balance -= w;
-        System.out.println(type+"("+accountNumber+"): "+df.format(balance)+"$");
         return this.balance;
-
     }
     
     @Override

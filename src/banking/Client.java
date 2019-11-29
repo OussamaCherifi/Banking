@@ -25,8 +25,8 @@ public class Client implements IClient {
         this.id = Client.counter;
         this.firstName = firstName;
         this.lastName = lastName;
-        counter++;
-        accountList = new ArrayList<Account>();
+        this.accountList = new ArrayList<Account>();
+        Client.counter++;
     }
     
     @Override
@@ -36,8 +36,8 @@ public class Client implements IClient {
 
     @Override
     public void displayAccounts() {
-        for (Account i : accountList) {
-            System.out.println(i);
+        for (int i=0;i<this.accountList.size();i++) {
+            System.out.println(this.accountList.get(i));
         }
     }
 
@@ -46,6 +46,10 @@ public class Client implements IClient {
         return this.accountList.get(accountNumber);
     }
 
+    @Override
+    public String toString(){
+        return (this.id)+" "+this.lastName+", "+this.firstName;
+    }
     
     
     
@@ -90,9 +94,5 @@ public class Client implements IClient {
         Client.counter = counter;
     }
     
-    //@RR
-    public String toString(){
-        return (this.id)+" "+this.lastName+", "+this.firstName;
-    }
     
 }

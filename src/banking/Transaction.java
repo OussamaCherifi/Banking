@@ -26,7 +26,9 @@ public class Transaction implements ITransaction{
     public String toString(){
     return this.type+" of "+Transaction.df.format(amount)+"$";
     }
-
+    
+    
+    
     
     public String getType() {
         return type;
