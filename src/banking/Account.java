@@ -5,6 +5,7 @@
  */
 package banking;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 
@@ -15,15 +16,18 @@ import java.util.ArrayList;
 //Ismail
 public class Account implements IAccount{
     	protected int accountNumber;
-	protected double balance = 0;
+	protected double balance;
 	protected ArrayList<Transaction>transactions;
         protected String type;
         protected Client owner;
         protected static int counter = 0;
         private static final UserInputManager userInput = new UserInputManager();
+        private static final DecimalFormat df = new DecimalFormat("###,###,##0.00");
 
     public Account(String type) {
+        this.accountNumber = counter;
         this.type = type;
+        this.balance = 0;
         counter++;
         transactions = new ArrayList<Transaction>();
     }
@@ -31,10 +35,10 @@ public class Account implements IAccount{
         
     @Override
     public double deposit(double d){
-       //@RR
-       transactions.add(new Transaction("Deposit", d));
-       balance += d;
-       return balance;
+       this.transactions.add(new Transaction("Deposit", d));
+       this.balance += d;
+       System.out.println(type+"("+accountNumber+"): "+df.format(balance)+"$");
+       return this.balance; 
     }
     
     @Override
@@ -49,10 +53,16 @@ public class Account implements IAccount{
 
     @Override
     public double withdrawal(double w) {
-        transactions.add(new Transaction("Deposit", w));
-        balance -= w;
-        return balance;
+        this.transactions.add(new Transaction("Withdrawal", w));
+        this.balance -= w;
+        System.out.println(type+"("+accountNumber+"): "+df.format(balance)+"$");
+        return this.balance;
 
+    }
+    
+    @Override
+    public String toString(){
+        return (this.type)+" "+(this.accountNumber)+": "+this.df.format(balance)+"$"; 
     }
     
     

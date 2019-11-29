@@ -15,7 +15,6 @@ import java.util.Scanner;
 //Oussama
 public class UserInputManager implements IUserInputManager  {
     private static final Bank bank = new Bank();
-    private static final UserInputManager userInput = new UserInputManager();
     private static final Scanner scan = new Scanner(System.in);
     public UserInputManager() {
     }
@@ -33,14 +32,14 @@ public class UserInputManager implements IUserInputManager  {
     public Account retrieveAccountType() {
         System.out.println("Select the desired account:\n• Type 1 for Checking account;\n•Type 2 for Savings account;");
         int type = scan.nextInt();
-        if(type == 1){
-            return new CheckingAccount();
-        }
-        else if(type == 2){
-            return new SavingsAccount();
-        }
-        else{
-            System.err.println("Please, make sure to enter 1 or 2.");
+        switch (type) {
+            case 1:
+                return new CheckingAccount();
+            case 2:
+                return new SavingsAccount();
+            default:
+                System.err.println("Please, make sure to enter 1 or 2.");
+                break;
         }
         //If statement != 1 or 2, then it returns nothing. 
         return null;
@@ -75,6 +74,7 @@ public class UserInputManager implements IUserInputManager  {
 
     
    //Oussama
+    @Override
     public int retrieveUserOption() {
         System.out.println("Enter your option :");
         System.out.println("Welcome to the bank, please select the option you wish to execute; \n *******************************************\n 	[1] Add a new Client  \n" +

@@ -5,6 +5,8 @@
  */
 package banking;
 
+import java.text.DecimalFormat;
+
 /**
  *
  * @author cstuser
@@ -13,6 +15,7 @@ package banking;
 public class Transaction implements ITransaction{
     private String type;
     private double amount;
+    private static final DecimalFormat df = new DecimalFormat("#,###,##0.00");
 
     public Transaction(String type, double amount) {
         this.type = type;
@@ -21,7 +24,7 @@ public class Transaction implements ITransaction{
     
 @Override
     public String toString(){
-    return null;
+    return this.type+" of "+Transaction.df.format(amount)+"$";
     }
 
     

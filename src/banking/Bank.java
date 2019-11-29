@@ -26,25 +26,28 @@ public class Bank implements IBank {
     }
     
 //Ismail
+    @Override
     public void displayClientAccounts(int clientId) {
-        for(int i = 0; i < clientList.get(clientId).getAccountList().size();i++) {
-            System.out.print(clientList.get(clientId).getAccountList().get(i).toString());
+        for(int i = 0; i < this.clientList.get(clientId).getAccountList().size();i++) {
+            System.out.print(this.clientList.get(clientId).getAccountList().get(i).toString());
         }
     }
     //Sathu
+    @Override
     public void displayClientList() {
-    for(int i = 0; i< clientList.size(); i++){
-        System.out.println(clientList.get(i).toString());
+    for(int i = 0; i< this.clientList.size(); i++){
+        System.out.println(this.clientList.get(i).toString());
         }
     }
 
 //Sathu
     @Override
     public Client getClient(int id) {
-        return clientList.get(id);
+        return this.clientList.get(id);
     }
 
 //Ismail
+    @Override
     public Account getClientAccount(int clientId, int accountNumber) {
         return getClient(clientId).getAccountList().get(accountNumber);
     }

@@ -36,12 +36,14 @@ public class Client implements IClient {
 
     @Override
     public void displayAccounts() {
-        
+        for (Account i : accountList) {
+            System.out.println(i);
+        }
     }
 
     @Override
     public Account getAccount(int accountNumber) {
-        return null;
+        return this.accountList.get(accountNumber);
     }
 
     
@@ -90,7 +92,7 @@ public class Client implements IClient {
     
     //@RR
     public String toString(){
-        return "";
+        return (this.id)+" "+this.lastName+", "+this.firstName;
     }
     
 }
