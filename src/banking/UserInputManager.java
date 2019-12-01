@@ -56,10 +56,10 @@ public class UserInputManager implements IUserInputManager  {
 //Oussama
     @Override
     public Client retrieveClientInfo() {
-        System.out.println("Enter your first name: ");
-        String firstName = scan.nextLine();
-        System.out.println("Enter your last name: ");
-        String lastName= scan.nextLine();
+        System.out.print("Enter your first name: ");
+        String firstName = scan.next();
+        System.out.print("Enter your last name: ");
+        String lastName= scan.next();
 
         return new Client(firstName, lastName);
     }
@@ -76,7 +76,6 @@ public class UserInputManager implements IUserInputManager  {
    //Oussama
     @Override
     public int retrieveUserOption() {
-        System.out.println("Enter your option :");
         System.out.println("Welcome to the bank, please select the option you wish to execute; \n *******************************************\n 	[1] Add a new Client  \n" +
 "	[2] Create a new Account \n" +
 "	[3] Make a Deposit             \n" +
@@ -84,6 +83,7 @@ public class UserInputManager implements IUserInputManager  {
 "	[5] List Account Transactions  \n" +
 "	[6] List Clients\n" +
 "	[7] List Client Accounts \n *******************************************");
+        System.out.println("Enter your option :");
         int input = scan.nextInt();
         return input;
     }

@@ -6,6 +6,8 @@
 package banking;
 
 
+
+
 /**
  *
  * @author cstuser
@@ -18,22 +20,41 @@ public class Banking {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-     
-        
-        System.out.println("Welcome to the bank, please select the option you wish to execute; \n *******************************************\n 	[1] Add a new Client  \n" +
+/*"Welcome to the bank, please select the option you wish to execute; \n *******************************************\n 	[1] Add a new Client  \n" +
 "	[2] Create a new Account \n" +
 "	[3] Make a Deposit             \n" +
 "	[4] Make a Withdrawal \n" +
 "	[5] List Account Transactions  \n" +
 "	[6] List Clients\n" +
-"	[7] List Client Accounts \n *******************************************");
-       // if(1){
-       //     Client c = myBank.getClientInfo();
-       //     myBank.addClient(c);
+"	[7] List Client Accounts \n *******************************************");*/
+     UserInputManager a = new UserInputManager(); 
+     Bank b = new Bank();
+     Client c = new Client();
+     
+     switch(a.retrieveUserOption()){   
+         
+        case 1:
+             b.addClient(a.retrieveClientInfo());
+             break;
+        case 2:
+             
+        case 3:
+             a.retrieveTransactionAmount();
+             
+        case 4:
+             
+        case 5:
+        
+        case 6:
+            
+        case 7:
+        
+        default: System.out.println("please enter one of the options above.");
+         
+     }     
+         
     }
-    
-    public static void test(Bank myBank) {
-        Client newClient = new Client("Ronald", "Raphael");
-        myBank.addClient(newClient);
+
     }
-}
+  
+
