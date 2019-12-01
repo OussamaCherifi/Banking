@@ -16,7 +16,7 @@ import java.text.DecimalFormat;
 public class Transaction implements ITransaction{
     private String type;
     private double amount;
-    private static final DecimalFormat df = new DecimalFormat("#,###,##0.00");
+    private static final DecimalFormat df = new DecimalFormat("###,###,###,##0.00");
 
     public Transaction(String type, double amount) {
         this.type = type;

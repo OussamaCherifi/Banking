@@ -23,7 +23,7 @@ public class Account implements IAccount{
         protected Client owner;
         protected static int counter = 0;
         private static final UserInputManager userInput = new UserInputManager();
-        private static final DecimalFormat df = new DecimalFormat("###,###,##0.00");
+        private static final DecimalFormat df = new DecimalFormat("###,###,###,##0.00");
 
     public Account(String type) {
         this.accountNumber = counter;

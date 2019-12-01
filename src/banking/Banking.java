@@ -16,20 +16,20 @@ package banking;
 public class Banking {
 
     private static final UserInputManager userI = new UserInputManager(); 
-    private static final Bank b = new Bank("1", "446 Red Cross");
+    private static final Bank b = new Bank("1", "777 Avenue de La-Hess");
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        //Custom colors for the heading
         final String ANSI_BLUE = "\u001B[34m";
         final String ANSI_RESET = "\u001B[0m";
-        
+
         int id;
         int accountNb;
         double transaction;
-
         
+        //Heading
         System.out.println(ANSI_BLUE + "Welcome to the bank" + ANSI_RESET);
         
         //Infinite while loop
