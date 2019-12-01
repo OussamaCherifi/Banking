@@ -16,6 +16,8 @@ import java.util.ArrayList;
 
 //Ismail
 public class Account implements IAccount{
+        private static final String ANSI_RED = "\u001B[31m";
+        private static final String ANSI_RESET = "\u001B[0m";
     	protected int accountNumber;
 	protected double balance;
 	protected ArrayList<Transaction>transactions;
@@ -41,7 +43,7 @@ public class Account implements IAccount{
        this.balance += d;
        return this.balance; 
        }
-       System.err.println("You can't deposit a negative amount.");
+       System.out.println(ANSI_RED+"You can't deposit a negative amount."+ANSI_RESET);
        return balance;
     }
     
@@ -64,13 +66,13 @@ public class Account implements IAccount{
         this.balance -= w;
         return this.balance;
         }
-        System.err.println("You can't withdraw a negative amount.");
+        System.out.println(ANSI_RED+"You can't withdraw a negative amount."+ANSI_RESET);
         return balance;
     }
     
     @Override
     public String toString(){
-        return this.type+"("+this.accountNumber+")"+": "+Account.df.format(balance)+"$\n"; 
+        return this.type+"("+this.accountNumber+")"+": "+Account.df.format(balance)+"$"; 
     }
     
     

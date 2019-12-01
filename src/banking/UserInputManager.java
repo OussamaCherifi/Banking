@@ -15,8 +15,11 @@ import java.util.Scanner;
 
 //Oussama
 public class UserInputManager implements IUserInputManager  {
-    //private static final Bank bank = new Bank();
+    
     private static final Scanner scan = new Scanner(System.in);
+    private static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    private static final String ANSI_RESET = "\u001B[0m";
     
     public UserInputManager() {
     }
@@ -32,7 +35,7 @@ public class UserInputManager implements IUserInputManager  {
             return accountNumber;
             }
             else{
-                System.err.println("This account number does not exist. Please try again.\n");
+                System.out.println(ANSI_RED+"This account number does not exist. Please try again.\n"+ANSI_RESET);
             }
         }
         return 0;
@@ -42,7 +45,7 @@ public class UserInputManager implements IUserInputManager  {
     public Account retrieveAccountType() {
         boolean b = true;
         while(b){
-            System.out.println("Select the desired account:\n• Type 1 for Checking account;\n• Type 2 for Savings account;");
+            System.out.println("Select the desired account:\n\n• Type 1 for Checking account;\n• Type 2 for Savings account;");
             int type = scan.nextInt();
             
             if(type==1){
@@ -52,8 +55,8 @@ public class UserInputManager implements IUserInputManager  {
                 return new SavingsAccount();        
             }
             else{
-                System.err.println("Please make sure to enter one of the options.\n");
-            }            
+                System.out.println(ANSI_RED+"Please make sure to enter one of the options.\n"+ANSI_RESET);
+            }
         }
         return null;
     }
@@ -69,7 +72,7 @@ public class UserInputManager implements IUserInputManager  {
             return id;
             }
             else{
-                System.err.println("This client id does not exist. Please try again.\n");
+                System.out.println(ANSI_RED+"This client id does not exist. Please try again.\n"+ANSI_RESET);
             }
         }
         return 0;
@@ -96,7 +99,7 @@ public class UserInputManager implements IUserInputManager  {
    
     @Override
     public int retrieveUserOption() {
-        System.out.println("*******************************************\n"+
+        System.out.println("\n*******************************************\n"+
 " 	[1] Add a new Client  \n" +
 "	[2] Create a new Account \n" +
 "	[3] Make a Deposit             \n" +
@@ -108,7 +111,7 @@ public class UserInputManager implements IUserInputManager  {
         System.out.println("Enter your option :");
         int input = scan.nextInt();
         
-        System.out.println("Your selected option is: " +input+"\n");
+        System.out.println(ANSI_GREEN+"Your selected option is: " +input+"\n"+ANSI_RESET);
         return input;
     }
     

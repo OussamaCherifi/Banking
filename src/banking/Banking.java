@@ -24,6 +24,7 @@ public class Banking {
         //Custom colors for the heading
         final String ANSI_BLUE = "\u001B[34m";
         final String ANSI_RESET = "\u001B[0m";
+        final String ANSI_RED = "\u001B[31m";
 
         int id;
         int accountNb;
@@ -86,7 +87,7 @@ public class Banking {
             break;
             //If  option < 1 || option > 7
         default:
-            System.err.println("Please enter a valid option.");
+            System.out.println(ANSI_RED+"Please enter a valid option."+ANSI_RESET);
             break;
             }     
          
