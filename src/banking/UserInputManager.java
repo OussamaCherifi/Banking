@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 //Oussama
 public class UserInputManager implements IUserInputManager  {
-    private static final Bank bank = new Bank();
+    //private static final Bank bank = new Bank();
     private static final Scanner scan = new Scanner(System.in);
     public UserInputManager() {
     }

@@ -27,19 +27,22 @@ public class Banking {
 "	[5] List Account Transactions  \n" +
 "	[6] List Clients\n" +
 "	[7] List Client Accounts \n *******************************************");*/
-     UserInputManager a = new UserInputManager(); 
-     Bank b = new Bank();
-     Client c = new Client();
+    UserInputManager userI = new UserInputManager(); 
+    Bank b = new Bank("1", "446 Red Cross");
      
-     switch(a.retrieveUserOption()){   
+    
+    switch(userI.retrieveUserOption()){   
          
         case 1:
-             b.addClient(a.retrieveClientInfo());
+             b.addClient(userI.retrieveClientInfo());
+             b.displayClientList();
              break;
         case 2:
-             
+             int id = userI.retrieveClientId();
+             b.getClientList().get(id).addAccount(userI.retrieveAccountType());
+             userI.retrieveAccountType();
         case 3:
-             a.retrieveTransactionAmount();
+             userI.retrieveTransactionAmount();
              
         case 4:
              

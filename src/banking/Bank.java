@@ -19,6 +19,14 @@ public class Bank implements IBank {
     private ArrayList<Client>clientList;
     private UserInputManager userInput = new UserInputManager();
 
+    public Bank() {
+    }
+
+    public Bank(String bankNumber, String address) {
+        this.bankNumber = bankNumber;
+        this.address = address;
+        this.clientList = new ArrayList<Client>();
+    }
     
     @Override
     public void addClient(Client newClient) {    

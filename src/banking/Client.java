@@ -28,6 +28,9 @@ public class Client implements IClient {
         this.accountList = new ArrayList<Account>();
         Client.counter++;
     }
+
+    Client() {
+    }
     
     @Override
     public void addAccount(Account newAccount) {
