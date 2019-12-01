@@ -55,7 +55,7 @@ public class Client implements IClient {
     }
     
     
-    
+    //Getters and Setters
     
     public int getId() {
         return id;

@@ -13,6 +13,7 @@ import java.util.ArrayList;
  *
  * @author cstuser
  */
+
 //Ismail
 public class Account implements IAccount{
     	protected int accountNumber;
@@ -76,7 +77,7 @@ public class Account implements IAccount{
     
     
     
-    
+     //Getters and Setters
 
     public int getAccountNumber() {
         return accountNumber;

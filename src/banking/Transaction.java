@@ -11,6 +11,7 @@ import java.text.DecimalFormat;
  *
  * @author cstuser
  */
+
 //Sathu
 public class Transaction implements ITransaction{
     private String type;
@@ -28,7 +29,7 @@ public class Transaction implements ITransaction{
     }
     
     
-    
+     //Getters and Setters
     
     public String getType() {
         return type;

@@ -6,11 +6,11 @@
 package banking;
 
 
-
 /**
  *
  * @author cstuser
  */
+
 //Ismail
 public class SavingsAccount extends Account {
 

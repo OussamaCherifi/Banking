@@ -10,6 +10,7 @@ package banking;
  *
  * @author cstuser
  */
+
 //Ismail
 public class CheckingAccount extends Account {
 

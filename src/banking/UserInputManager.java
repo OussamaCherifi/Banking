@@ -12,6 +12,7 @@ import java.util.Scanner;
  *
  * @author cstuser
  */
+
 //Oussama
 public class UserInputManager implements IUserInputManager  {
     //private static final Bank bank = new Bank();
@@ -19,8 +20,7 @@ public class UserInputManager implements IUserInputManager  {
     
     public UserInputManager() {
     }
-    
-//Oussama 
+
     @Override
     public int retrieveAccountNumber() {
         boolean b = true;
@@ -38,7 +38,6 @@ public class UserInputManager implements IUserInputManager  {
         return 0;
     }
 
-  //Oussama
     @Override
     public Account retrieveAccountType() {
         boolean b = true;
@@ -59,7 +58,6 @@ public class UserInputManager implements IUserInputManager  {
         return null;
     }
 
-//Oussama
     @Override
     public int retrieveClientId() {
         boolean b = true;
@@ -76,18 +74,16 @@ public class UserInputManager implements IUserInputManager  {
         }
         return 0;
     }
-
-//Oussama
+    
     @Override
     public Client retrieveClientInfo() {
         System.out.print("Enter your first name: ");
         String firstName = scan.next();
         System.out.print("Enter your last name: ");
-        String lastName= scan.next();
+        String lastName = scan.next();
 
         return new Client(firstName, lastName);
     }
-
 
     @Override
     public double retrieveTransactionAmount() {
@@ -97,7 +93,7 @@ public class UserInputManager implements IUserInputManager  {
     }
 
     
-   //Oussama
+   
     @Override
     public int retrieveUserOption() {
         System.out.println("*******************************************\n"+
