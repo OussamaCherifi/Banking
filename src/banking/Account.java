@@ -35,9 +35,13 @@ public class Account implements IAccount{
         
     @Override
     public double deposit(double d){
+       if(d>=0){
        this.transactions.add(new Transaction("Deposit", d));
        this.balance += d;
        return this.balance; 
+       }
+       System.err.println("You can't deposit a negative amount.");
+       return balance;
     }
     
     @Override
@@ -45,7 +49,6 @@ public class Account implements IAccount{
        for(int i=0;i<this.transactions.size();i++){
            System.out.println(transactions.get(i));
        }
-       System.out.println(type+"("+accountNumber+"): "+df.format(balance)+"$");
     }
 
     @Override
@@ -55,14 +58,18 @@ public class Account implements IAccount{
 
     @Override
     public double withdrawal(double w) {
+        if(w>=0){
         this.transactions.add(new Transaction("Withdrawal", w));
         this.balance -= w;
         return this.balance;
+        }
+        System.err.println("You can't withdraw a negative amount.");
+        return balance;
     }
     
     @Override
     public String toString(){
-        return (this.type)+" "+(this.accountNumber)+": "+this.df.format(balance)+"$"; 
+        return this.type+"("+this.accountNumber+")"+": "+Account.df.format(balance)+"$\n"; 
     }
     
     

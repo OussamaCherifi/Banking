@@ -51,7 +51,7 @@ public class Client implements IClient {
 
     @Override
     public String toString(){
-        return (this.id)+" "+this.lastName+", "+this.firstName;
+        return "("+this.id+")"+" "+this.lastName+", "+this.firstName;
     }
     
     

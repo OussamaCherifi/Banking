@@ -15,47 +15,76 @@ package banking;
 //All the team
 public class Banking {
 
+    private static final UserInputManager userI = new UserInputManager(); 
+    private static final Bank b = new Bank("1", "446 Red Cross");
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-/*"Welcome to the bank, please select the option you wish to execute; \n *******************************************\n 	[1] Add a new Client  \n" +
-"	[2] Create a new Account \n" +
-"	[3] Make a Deposit             \n" +
-"	[4] Make a Withdrawal \n" +
-"	[5] List Account Transactions  \n" +
-"	[6] List Clients\n" +
-"	[7] List Client Accounts \n *******************************************");*/
-    UserInputManager userI = new UserInputManager(); 
-    Bank b = new Bank("1", "446 Red Cross");
-     
-    
-    switch(userI.retrieveUserOption()){   
+        final String ANSI_BLUE = "\u001B[34m";
+        final String ANSI_RESET = "\u001B[0m";
+        
+        int id;
+        int accountNb;
+        double transaction;
+
+        
+        System.out.println(ANSI_BLUE + "Welcome to the bank" + ANSI_RESET);
+        
+        
+    while(true){
+        
+        switch(userI.retrieveUserOption()){   
          
         case 1:
-             b.addClient(userI.retrieveClientInfo());
-             b.displayClientList();
-             break;
+            b.addClient(userI.retrieveClientInfo());
+            break;
         case 2:
-             int id = userI.retrieveClientId();
-             b.getClientList().get(id).addAccount(userI.retrieveAccountType());
-             userI.retrieveAccountType();
+            id = userI.retrieveClientId();
+            Account acc = userI.retrieveAccountType();
+            acc.setOwner(b.getClient(id));
+            b.getClient(id).addAccount(acc);
+            break;
+             
         case 3:
-             userI.retrieveTransactionAmount();
+            id = userI.retrieveClientId();
+            accountNb = userI.retrieveAccountNumber();
+            transaction = userI.retrieveTransactionAmount();
+            b.getClientAccount(id, accountNb).deposit(transaction);
+            System.out.println(b.getClientAccount(id, accountNb));
+            break;
              
         case 4:
-             
+            id = userI.retrieveClientId();
+            accountNb = userI.retrieveAccountNumber();
+            transaction = userI.retrieveTransactionAmount();
+            b.getClientAccount(id, accountNb).withdrawal(transaction);
+            System.out.println(b.getClientAccount(id, accountNb));
+            break;
         case 5:
-        
+            id = userI.retrieveClientId();
+            accountNb = userI.retrieveAccountNumber();
+            b.getClientAccount(id, accountNb).displayAllTransactions();
+            System.out.println("\n"+b.getClientAccount(id, accountNb));
+            break;
         case 6:
-            
+            System.out.println("List of current clients: ");
+            b.displayClientList();
+            break;
         case 7:
+            id = userI.retrieveClientId();
+            System.out.println("Accounts for "+b.getClient(id).getLastName()+", "+b.getClient(id).getFirstName()+" "+"("+b.getClient(id).getId()+"):");
+            b.getClient(id).displayAccounts();
+            break;
         
-        default: System.out.println("please enter one of the options above.");
+        default:
+            System.err.println("Please enter a valid option.");
+            break;
+            }     
          
-     }     
-         
+        }
+ 
     }
 
     }

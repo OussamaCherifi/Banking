@@ -16,41 +16,65 @@ import java.util.Scanner;
 public class UserInputManager implements IUserInputManager  {
     //private static final Bank bank = new Bank();
     private static final Scanner scan = new Scanner(System.in);
+    
     public UserInputManager() {
     }
     
 //Oussama 
     @Override
     public int retrieveAccountNumber() {
-        System.out.println("Enter the account number :");
-        int accountNumber = scan.nextInt();
-        return accountNumber;
+        boolean b = true;
+        while(b){
+            System.out.println("Enter the account number :");
+            int accountNumber = scan.nextInt();
+            
+            if(accountNumber>=0 && accountNumber<Account.getCounter()){
+            return accountNumber;
+            }
+            else{
+                System.err.println("This account number does not exist. Please try again.\n");
+            }
+        }
+        return 0;
     }
 
   //Oussama
     @Override
     public Account retrieveAccountType() {
-        System.out.println("Select the desired account:\n• Type 1 for Checking account;\n•Type 2 for Savings account;");
-        int type = scan.nextInt();
-        switch (type) {
-            case 1:
+        boolean b = true;
+        while(b){
+            System.out.println("Select the desired account:\n• Type 1 for Checking account;\n• Type 2 for Savings account;");
+            int type = scan.nextInt();
+            
+            if(type==1){
                 return new CheckingAccount();
-            case 2:
-                return new SavingsAccount();
-            default:
-                System.err.println("Please, make sure to enter 1 or 2.");
-                break;
+            }
+            else if(type==2){
+                return new SavingsAccount();        
+            }
+            else{
+                System.err.println("Please make sure to enter one of the options.\n");
+            }            
         }
-        //If statement != 1 or 2, then it returns nothing. 
         return null;
     }
 
 //Oussama
     @Override
     public int retrieveClientId() {
-        System.out.println("Enter the Client's id :");
-        int id = scan.nextInt();
-        return id;
+        boolean b = true;
+        while(b){
+            System.out.println("Enter the client's id :");
+            int id = scan.nextInt();
+            
+            if(id>=0 && id<Client.getCounter()){
+            return id;
+            }
+            else{
+                System.err.println("This client id does not exist. Please try again.\n");
+            }
+        }
+        return 0;
     }
 
 //Oussama
@@ -76,15 +100,19 @@ public class UserInputManager implements IUserInputManager  {
    //Oussama
     @Override
     public int retrieveUserOption() {
-        System.out.println("Welcome to the bank, please select the option you wish to execute; \n *******************************************\n 	[1] Add a new Client  \n" +
+        System.out.println("*******************************************\n"+
+" 	[1] Add a new Client  \n" +
 "	[2] Create a new Account \n" +
 "	[3] Make a Deposit             \n" +
 "	[4] Make a Withdrawal \n" +
 "	[5] List Account Transactions  \n" +
 "	[6] List Clients\n" +
 "	[7] List Client Accounts \n *******************************************");
+        
         System.out.println("Enter your option :");
         int input = scan.nextInt();
+        
+        System.out.println("Your selected option is: " +input+"\n");
         return input;
     }
     
